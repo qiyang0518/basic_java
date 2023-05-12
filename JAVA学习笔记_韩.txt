@@ -1509,3 +1509,10 @@ HashMap没有实现同步，因此线程成不安全
 
 
 2023/5/12
+Hashtable
+存放的元素是键值对,键和值都不能为null,否则会抛出NullPointerException
+hashTable使用的方法基本上和hashmap一样
+HashTable是线程安全的(synchronized),hashMap是线程不安全的
+
+底层机制分析
+底层是一个数组Hashtable$Entry,初始化大小为11
