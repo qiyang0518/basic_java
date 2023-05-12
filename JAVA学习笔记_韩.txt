@@ -1564,4 +1564,37 @@ TreeSet
 
 
 
-Collection类
+Collections工具类
+collections是一个操作Set、List、Map等集合的工具类
+collections中日工了一系列静态的方法对集合元素进行排序、查询和修改等操作
+
+排序操作:(均为static方法)
+reverse(List):反转List中的元素的顺序
+Collections.reverse(list);
+shuffle(List):对List集合元素进行随机排序
+sort(List):根据元素的自然排序对指定List集合元素按升序排序
+Collections.sort(list);
+Collections.sort(list, new Comparator() {
+@Override
+public int compare(Object o1, Object o2) {
+    //可以加入校验代码.
+    return ((String) o2).length() - ((String) o1).length();
+}
+});
+swap(List,int i,int j):将指定list集合中的i处和j处元素进行交换
+
+
+查找、替换
+Object max(Collection):根据元素的自然排序,返回给定集合中的最大元素
+Object maxObject = Collections.max(list, new Comparator() {
+@Override
+public int compare(Object o1, Object o2) {
+    return ((String)o1).length() - ((String)o2).length();
+}
+});
+Object max(Collection,Comparator):根据Comparator指定的顺序,返回给定集合中最大元素
+Object min(Collection):作用于获取最大值上相反
+Object max(Collection,Comparator):作用与获取上相反
+int frequency(Collection,Object):返回指定集合中指定元素出现的次数
+void copy(List dest,List src)：将src中的内容复制到dest中
+boolean replaceAll(List list,Object oldVal,Object newVal):值替换
