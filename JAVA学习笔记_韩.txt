@@ -20,6 +20,9 @@ try-catch-finally:选中可能发生异常的代码+ctrl+alt+t
 选择覆盖或实现的方法:Ctrl+O
 简化版迭代器:I
 取a - b的整数:(int)(a + Math.random() *(b - a + 1))
+添加至Git缓存区:Ctrl + Alt + A
+提交至Git:Ctrl + k
+推送至Github:Ctrl + shift + k
 模板:
 
 文件-设置-编辑器-实时模板
@@ -1516,3 +1519,28 @@ HashTable是线程安全的(synchronized),hashMap是线程不安全的
 
 底层机制分析
 底层是一个数组Hashtable$Entry,初始化大小为11
+临界值(threshold)为8
+
+
+Properties类继承自Hashtable类并实现了map类接口,也是使用一种键值对的形式来保存数据
+使用特点和Hashtable类似
+Properties还可以用于xxx.properties文件中,加载数据到properties类对象并读取和修改
+说明:工作后,xxx.properties文件通常作为配置文件,在IO流中说明举例
+
+
+开发中如何选择集合实现类
+在开发中,选择什么集合实现类,主要取决于业务操作特点,然后根据集合实现类特性进行选择,分析如下:
+1、先判断存储的类型(一组对象(一组键值对))
+2、一组对象:Collection接口
+    允许重复:List
+        增删多:LinkedList[底层维护了一个双向链表]
+        改查多:ArrayList[底层维护Object类型的可变数组]
+    不允许重复:Set
+        无序:HashSet[底层是HashMap,维护了一个hash表(即数组+链表+红黑树)]
+        排序:TreeSet
+        插入和取出顺序一致:LinkedHashSet,维护了一个数组+双向链表
+3、一组键值对:Map
+    键无序:HashMap[底层是:哈希表 jdk7:数组+链表,jdk8:数组+链表+红黑树]
+    键排序:TreeMap
+    键插入和取出一致:LinkedHashMap
+    读取文件:Properties
