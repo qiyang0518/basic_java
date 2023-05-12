@@ -11,24 +11,29 @@ public class TreeSet_
 {
     public static void main(String[] args)
     {
-        TreeSet treeSet = new TreeSet();
-        treeSet.add("12");
-        treeSet.add("41");
-        treeSet.add("32");
-        treeSet.add("25");
-        treeSet.add("a");
-        treeSet.add("ba");
-        treeSet.add("cba");
-
-        System.out.println(treeSet);
-        //自定义比较,传入一个比较器
-        TreeSet treeSet1 = new TreeSet(new Comparator()
+//        TreeSet treeSet = new TreeSet();
+        //
+        //        treeSet.add("12");
+        //        treeSet.add("41");
+        //        treeSet.add("32");
+        //        treeSet.add("25");
+        TreeSet treeSet = new TreeSet(new Comparator()
         {
             @Override
             public int compare(Object o1,Object o2)
             {
-                return ((String) o1).compareTo((String) o2);
+//                return ((String) o2).compareTo((String) o1);
+                                                        return ((String) o2).length() - ((String) o1).length();
             }
         });
+        treeSet.add("ba");
+        treeSet.add("cba");
+        treeSet.add("tom");
+        treeSet.add("aaaaaa");
+
+        System.out.println(treeSet);
+        //自定义比较,传入一个比较器
+
+        System.out.println(treeSet);
     }
 }
