@@ -1544,3 +1544,8 @@ Properties还可以用于xxx.properties文件中,加载数据到properties类对
     键排序:TreeMap
     键插入和取出一致:LinkedHashMap
     读取文件:Properties
+
+
+
+TreeSet
+自定义比较器:Comparabtor
