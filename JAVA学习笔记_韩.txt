@@ -1556,9 +1556,12 @@ TreeSet
             public int compare(Object o1,Object o2)
             {
                 return ((String) o1).compareTo((String) o2);            //根据字符串的比较规则进行比较
-                //return ((String) o2).length() - ((String) o1).length();   //根据字符长度进行比较,若长度相等,则不进行增加操作
+                //return ((String) o2).length() - ((String) o1).length();   //根据字符长度进行比较,若长度相等,值替换,则不进行增加操作
             }
         });
 构造器把传入的比较器对象,赋给了TreeSet的底层TreeMap的属性this.comparator
 在调用add方法时会调用putVal
 
+
+
+Collection类
