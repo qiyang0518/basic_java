@@ -1549,3 +1549,13 @@ Properties还可以用于xxx.properties文件中,加载数据到properties类对
 
 TreeSet
 自定义比较器:Comparabtor
+//自定义比较,传入一个比较器
+        TreeSet treeSet1 = new TreeSet(new Comparator()
+        {
+            @Override
+            public int compare(Object o1,Object o2)
+            {
+                return ((String) o1).compareTo((String) o2);
+            }
+        });
+构造器把传入的比较器对象,赋给了TreeSet的底层TreeMap的属性this.comparator

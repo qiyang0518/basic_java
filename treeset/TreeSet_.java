@@ -16,6 +16,10 @@ public class TreeSet_
         treeSet.add("41");
         treeSet.add("32");
         treeSet.add("25");
+        treeSet.add("a");
+        treeSet.add("ba");
+        treeSet.add("cba");
+
         System.out.println(treeSet);
         //自定义比较,传入一个比较器
         TreeSet treeSet1 = new TreeSet(new Comparator()
