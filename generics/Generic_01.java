@@ -23,7 +23,7 @@ public class Generic_01
         }
     }
 }
-
+@SuppressWarnings({"all"})
 class Dog
 {
     private String name;
