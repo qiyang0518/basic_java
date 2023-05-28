@@ -23,6 +23,8 @@ try-catch-finally:选中可能发生异常的代码+ctrl+alt+t
 添加至Git缓存区:Ctrl + Alt + A
 提交至Git:Ctrl + k
 推送至Github:Ctrl + shift + k
+单元测试框架:alt + enter 	(添加@Test)
+
 模板:
 
 文件-设置-编辑器-实时模板
