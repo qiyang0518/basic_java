@@ -1825,7 +1825,69 @@ public synchronized void m(String str)
 
 
 常用的文件操作:
-new File(String pathname)//根据路径创建一个File对象
-new File(File parent,String child)//根据父目录文件 + 子路径构建
-new File(String parent,String child)//根据父目录 + 子路径构建
+new File(String pathname)//根据路径创建一个File对象(文件类型自定义)
+String pathName = "C:\\Users\\xml\\Desktop\\Test\\file.doc";
+new File(File parent,String child)//根据父目录文件 + 子路径构建(文件名及后缀)
+File file = new File("C:\\Users\\xml\\Desktop\\Test");
+File file1 = new File(file,"file.doc");
+new File(String parent,String child)//根据父目录 + 子路径构建(文件名及后缀)
+
 createNewFile //创建新文件
+
+
+常用文件操作:
+getName()、getAbsolutePath()、getParent()、length()、exists()、isFile():是不是文件、isDirectory():是不是目录
+目录的操作和文件的删除:
+mkdir创建一级目录,mkdirs创建多级目录,.delete()(boolean)删除空目录或文件
+
+
+
+
+IO流原理及流的分类
+JavaIO六原理:
+1、I/O是Input/Output的缩写,I/O技术用于处理数据传输,如读/写文件,网络通讯
+2、Java程序中,对于数据的输入/输出操作以“流”的方式进行
+3、Java.io包下提供了各种“流”类和接口,用以获取不同种类的数据,并通过方法输入或输出数据
+
+流的分类:
+按操作数据单位不同分为:字节流(8bit)、字符流(按字符)
+按数据流的流向不同分为:输入流、输出流
+按流的角色的不同分为:节点流、处理流、包装流
+
+    抽象基类                字节流                 字符流
+    输入流                 InputStream             Reader
+    输出流                 OutputStream            Writer
+
+
+InputStream:字节输入流
+实现子类:
+    FileInputStream:文件输入流
+    BufferedInputSteam:缓冲字节输入流
+    ObjectInputStream:对象字节输入流
+
+OutputStream:字符输出流
+FileOutputStream:   new FileOutputStream(filePath)         覆盖创建方式
+                    new FileOutputStream(filePath,true)         追加创建方式
+          读取方式:file.write(str.getBytes());
+
+
+FileReader和FileWriter
+FileReader常用方法:
+new FileReader(File/String)
+read:每次读取单个字符,返回该字符,读取至文件末尾返回-1
+read(char[]):批量读取多个字符到数组,返回读取到的字符数,读取至文件末尾返回-1
+相关API:
+new String(char[]):将char[]转换成String
+new String(char[],off,len):将char[]的指定部分转换成String
+
+FileWriter常用方法:
+new FileWriter(File/String):覆盖模式,相当于流的指针在首端
+new FileWriter(File/String,true):追加模式,相当于流的指针在尾端
+write(int):写入单个字符
+write(char[]):写入指定数组
+write(char[],off,len):写入指定数组的指定部分
+write(string):写入整个字符串
+write(string,off,len):写入指定字符串的指定部分
+相关API:
+String类:toCharArray:将String转换成char[]
+注意:FileWriter使用后,必须关闭(close)或者刷新(flush),否则无法写入指定文件
