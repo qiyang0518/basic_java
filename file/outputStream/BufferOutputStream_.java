@@ -23,11 +23,11 @@ public class BufferOutputStream_
         {
             bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
             bufferedInputStream = new BufferedInputStream(fileInputStream);
-//            while((rendLen = bufferedInputStream.read(buffer)) != -1 )
-//            {
-//                System.out.println(new String(buffer,0,rendLen));
-//            }
-//            System.out.println("文件读取完毕~");
+            while((rendLen = bufferedInputStream.read(buffer)) != -1 )
+            {
+                System.out.println(new String(buffer,0,rendLen));
+            }
+            System.out.println("文件读取完毕~");
             //读取指定长度字符数组,将读取长度返回给readLen,读取至文件尾部返回-1
             while((rendLen = bufferedInputStream.read(buffer)) != -1)
             {
@@ -44,7 +44,5 @@ public class BufferOutputStream_
             bufferedInputStream.close();
             bufferedOutputStream.close();
         }
-
     }
-
 }

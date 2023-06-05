@@ -1914,5 +1914,53 @@ BufferWriter:对Writer的子类进行封装
 BufferReader、BufferWriter属于字符流,按照字符来读取数据、关闭处理流时,只需关闭外层流(动态绑定机制)
 追加写:
 bufferedWriter = new BufferedWriter(new FileWriter(filePath,true));
+控制台输出文件内容:
+while((rendLen = bufferedInputStream.read(buffer)) != -1 )
+            {
+                System.out.println(new String(buffer,0,rendLen));
+            }
+
+拷贝文件:
+//读取指定长度字符数组,将读取长度返回给readLen,读取至文件尾部返回-1
+while((rendLen = bufferedInputStream.read(buffer)) != -1)
+{
+    //写入文件,根据返回的读取长度,将缓存区buffer指定部分存入目标地址文件
+    bufferedOutputStream.write(buffer,0,rendLen);
+}
+
+对象流
+ObjectInputStream(序列化)和ObjectOutputStream(反序列化)
+序列化和反序列化:
+1、序列化是在保存数据时,保存数据的纸盒数据类型
+2、反序列化时在恢复数据时,恢复数据的值和数据类型
+3、需要让某个对象支持序列化机制,则必须让棋类是可序列化的,为了让某个类时可序列化的,该类必须实现如下两个接口之一
+    Serializable        //标记接口(推荐使用)
+    Externalizable      //内置多个方法
+
+
+注意:
+1、读取顺序必须和存放顺序一致,存放时各数据的地址位置已确定
+2、存放类对象后,反序列化恢复对象时,需将该对象的声明语句移至同一java文件中并公有化,否则无法调用该类的相关方法和属性
+3、要求序列化或反序列化对象,必须实现Serializable
+4、序列化对象时,默认将里面所有属性进行序列化,但除了static或transient修饰的成员
+5、序列化对象时,要求里面数据的类型必须实现序列化接口
+6、序列化具备可继承性,如果某类实现序列化,则其所有子类也默认实现可序列化
+7、SerializableUID:序列化版本号,提高兼容性
+
+
+标准输入流和输出流
+System.in           InputStream             键盘
+System.out          PrintStream             控制台
+
+转换流:
+InputStreamReader和OutputStreamWriter
+InputStreamReader:Reader的子类,可以将InputStream(字节流)包装成Reader(字符流)
+OutputStreamWriter:Writer的子类,可以将OutputStream(字节流)包装成Writer(字符流)
+当处理纯文本数据时,如果使用字符流效率更高,并且可以有效解决中文问题,建议将字节流转换成字符流
+可以在使用时指定编码格式(UTF-8,gbk,gb2312)
+InputStreamReader(InputStream,Charset):可以设置编码
+
+BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),"gbk"));
+
 
 
