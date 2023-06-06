@@ -1959,8 +1959,29 @@ OutputStreamWriter:Writer的子类,可以将OutputStream(字节流)包装成Writ
 当处理纯文本数据时,如果使用字符流效率更高,并且可以有效解决中文问题,建议将字节流转换成字符流
 可以在使用时指定编码格式(UTF-8,gbk,gb2312)
 InputStreamReader(InputStream,Charset):可以设置编码
-
+指定编码输出至控制台
 BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),"gbk"));
+指定编码输入至文件
+OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(filePath),"UTF-8");
+
+打印流:
+PrintStream和PrintWriter
+只有输出流.没有输入流
+PrintStream:默认标准输出,即控制台输出,输出位置可以修改(即保存位置),而后输出语句内容保存至指定位置
+System.setOut(new PrintStream(filePath));
+
+
+Properties:专门用于读写配置文件的集合类
+配置文件的格式:键=值
+注意:键值对等号两边不需要有空格,值不需要用引号包括,默认String
+
+Properties常用方法:
+load:加载配置文件的键值对到Properties对象
+list:将数据显示到指定设备
+getProperty(key):根据键获取值
+setProperty(key,value):设置键值对到Properties对象
+store:将Properties中的键值对存储到配置文件,在IDEA中,保存信息到配置文件,如果含有中文,会存储文UniCode码
+
 
 
 
